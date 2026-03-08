@@ -1,0 +1,14 @@
+{
+  "name": "prism-technologies/ticket-system",
+  "description": "A Simple & Clean Customer Support System",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Abiodun",
+      "email": "abiodun@prismtechnologies.com.ng"
+    }
+  ],
+  "require": {
+    "phpmailer/phpmailer": "^7.0"
+  }
+}
