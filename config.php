@@ -1,18 +1,17 @@
 <?php
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$password = ""; // Add your password if necessary
-$dbname = "bookingsystem";
+// Database configuration settings
+
+$host = 'localhost';
+$username = 'your_username';
+$password = 'your_password';
+database = 'your_database';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($host, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
-// Start session
-session_start();
+echo "Connected successfully";
 ?>
