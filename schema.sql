@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS ticket_system;
+USE ticket_system;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    booking_reference VARCHAR(20) NOT NULL UNIQUE,
+    user_id INT NOT NULL,
+    passenger_name VARCHAR(100) NOT NULL,
+    origin VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL,
+    departure_date DATE NOT NULL,
+    passengers INT NOT NULL,
+    status ENUM('ACTIVE', 'RESCHEDULED', 'CANCELLED') DEFAULT 'ACTIVE',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #0052cc;
+    --primary-hover: #003d99;
+    --secondary: #ff9900;
+    --secondary-hover: #cc7a00;
+    --background: #f4f7f6;
+    --text-color: #333;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 82, 204, 0.2);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 6px 12px rgba(0, 82, 204, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    box-shadow: 0 4px 6px rgba(220, 53, 69, 0.2);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+input, select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.confirmation-box {
+    text-align: left;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    margin-bottom: 20px;
+}
+
+.confirmation-box p {
+    text-align: left;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.confirmation-box strong {
+    color: var(--primary);
+}
+
+.status-active { color: #28a745; font-weight: bold; }
+.status-rescheduled { color: #ffc107; font-weight: bold; }
+.status-cancelled { color: #dc3545; font-weight: bold; }

@@ -1,8 +1,0 @@
-.env
-vendor/
-uploads/
-.DS_Store
-.vscode/
-setup_db.php
-test_*.php
-migrate_password_reset.php

@@ -1,107 +1,87 @@
-# Prism Ticket: A Simple & Clean Customer Support System
+# FlightBookingSystem
 
-Prism Ticket is a lightweight, user-friendly, and visually clean online ticketing system designed for software development companies to manage customer issues effectively. Built with PHP and styled with Tailwind CSS, it prioritizes a frictionless user experience to ensure clients can report and track issues without frustration.
+A simple, responsive, and robust airplane ticket booking web application built with a modern UI design and a secure PHP/MySQL backend.
 
-_(Image shows a composite of the Login, Dashboard, and Ticket View screens)_
+## Features
 
-<p align="center">
-  <img src="screenshots/login.png" alt="Login Screen" width="30%">
-  <img src="screenshots/dashboard.png" alt="Dashboard" width="30%">
-  <img src="screenshots/view_ticket.png" alt="View Ticket" width="30%">
-</p>
+- **User Authentication**: Secure registration, login, and logout functionality using PHP Sessions and `password_hash()`.
+- **Flight Booking**: Users can easily book new flights by providing passenger details, origin, destination, and departure date.
+- **User Dashboard**: A personalized dashboard where authenticated users can view, manage, and track the status of all their booked flights.
+- **Flight Management**: Users can directly reschedule or cancel their active flights.
+- **Security**: The system enforces authorization checks to ensure users can only view and modify their own bookings.
+- **Modern UI**: A premium, clean, and responsive design utilizing CSS glassmorphism, smooth animations, and the Inter font family.
 
-## ✨ Key Features
+## Tech Stack
 
-- **Secure User Authentication:** A clean login screen for clients to access their support dashboard.
-- **Intuitive Dashboard:** View all submitted tickets at a glance.
-- **Color-Coded Statuses:** Instantly identify ticket status (`Open`, `In Progress`, `Resolved`) with clear visual cues.
-- **Effortless Ticket Creation:** A straightforward form allows users to create new support tickets with a title, detailed description, and priority level.
-- **Conversational Ticket View:** Track the progress of an issue through a chat-style interface that is easy to follow.
-- **Seamless Updates:** Users can add replies and updates to their tickets until they are resolved.
-- **Minimalist & Responsive UI:** Built with Tailwind CSS, the interface is clean, modern, and works well on different screen sizes.
+- **Frontend**: HTML5, CSS3 (Custom responsive styling, no external CSS frameworks)
+- **Backend**: Plain PHP (No frameworks used, procedural/vanilla approach)
+- **Database**: MySQL (Accessed securely via PHP Data Objects - PDO)
+- **Server Environment**: Designed for local development using XAMPP (Apache + MySQL), but can be deployed to any standard LAMP/WAMP stack.
 
-## 🚀 Tech Stack
+## Prerequisites
 
-- **Backend:** PHP
-- **Database:** MySQL / MariaDB
-- **Frontend:**
-  - HTML
-  - [Tailwind CSS](https://tailwindcss.com/) (via CDN for simplicity)
-  - JavaScript (for future enhancements)
+To run this application locally, you will need:
+- A web server stack like **XAMPP**, **WAMP**, or **MAMP** containing:
+  - PHP 7.4 or higher
+  - MySQL 5.7+ or MariaDB
 
-## 🔧 Installation & Setup Guide
+## Setup Instructions
 
-Follow these steps to get Prism Ticket running on your local machine.
+### 1. Download and Extract
+Clone or download the project files into your local local web server directory. 
+If you are using XAMPP on Windows, place the project folder (`bksystem`) inside `C:\xampp\htdocs\`.
+The path should look like: `C:\xampp\htdocs\bksystem`.
 
-### Prerequisites
+### 2. Start the Servers
+Open your XAMPP Control Panel and start both the **Apache** and **MySQL** services.
 
-You need a local web server environment with PHP and MySQL.
+### 3. Database Initialization
+This application includes an automated setup script to instantly establish the correct database schema.
+1. Open your web browser.
+2. Navigate to: `http://localhost/bksystem/setup_db.php`
+3. The page will display confirmation messages indicating that the `ticket_system` database and its tables (`users` and `bookings`) were successfully created.
 
-- [XAMPP](https://www.apachefriends.org/index.html) (Windows, macOS, Linux)
-- [WAMP](https://www.wampserver.com/en/) (Windows)
-- [MAMP](https://www.mamp.info/en/mamp/) (macOS)
+*(Optional: Manual Database Setup)*
+If you prefer to configure the database manually:
+- Open phpMyAdmin (`http://localhost/phpmyadmin`).
+- Import the provided `schema.sql` file located in the root directory.
 
-### 1. Clone the Repository
-
-Open your terminal or command prompt and run:
-
-```bash
-git clone https://github.com/meowbanky/prism_ticket.git
-cd prism_ticket
-```
-
-### 2. Set Up the Database
-
-You need to create a database and import the table structure.
-
-1.  **Start** your Apache and MySQL services from your server control panel (e.g., XAMPP Control Panel).
-2.  Open **phpMyAdmin** by navigating to `http://localhost/phpmyadmin`.
-3.  Create a new database. Let's call it `ticket_system`.
-4.  Click on the newly created database and go to the **"SQL"** tab.
-5.  Copy the entire content of the `database.sql` file from this repository and paste it into the SQL query box.
-6.  Click **"Go"** to execute the query. This will create the `users`, `tickets`, and `updates` tables, and insert a sample user.
-
-**Sample User Credentials:**
-
-- **Email:** Use the email you registered with.
-- **Password:** Use the password you created.
-
-### 3. Configure the Connection
-
-The final step is to tell the application how to connect to your new database.
-
-1.  Open the `db.php` file in your code editor.
-2.  Update the database credentials to match your local setup. (For a default XAMPP installation, you might only need to change the database name).
-
+### 4. Database Configuration (Optional)
+By default, the application is configured to connect to a default local MySQL server (username: `root`, no password).
+If your local server has a different configuration, open `db.php` and update the connection credentials:
 ```php
-// In db.php
-
-$host = 'localhost';
-$db   = 'ticket_system'; // The name of the database you created
-$user = 'root'; // Your MySQL username (usually 'root')
-$pass = '';     // Your MySQL password (usually empty by default)
+$host = '127.0.0.1';
+$db   = 'ticket_system';
+$user = 'root'; // Update if you have a specific user
+$pass = '';     // Update if you have a MySQL password
 ```
 
-### 4. Run the Application
+### 5. Access the Application
+You are all set! Open your browser and navigate to the application's home page:
+`http://localhost/bksystem/index.php`
 
-1.  If you haven't already, move the entire `prism_ticket` folder into your web server's root directory.
-    - For XAMPP, this is usually `C:/xampp/htdocs/`.
-    - For MAMP, it's `Applications/MAMP/htdocs/`.
-2.  Open your web browser and navigate to:
-    ```
-    http://localhost/prism_ticket
-    ```
+Create a new account, log in, and start exploring the FlightBookingSystem!
 
-You should now see the login screen. You can log in with the sample user credentials to start using the system.
+## Database Schema Details
 
-## 💡 UI/UX Design Philosophy
+The application uses two primary tables within the `ticket_system` database:
 
-This project was designed with three core principles in mind:
+### Table: `users`
+Stores registered user credentials.
+- `id`: INT (Primary Key, Auto Increment)
+- `username`: VARCHAR(100) (Unique)
+- `password`: VARCHAR(255) (Hashed)
+- `created_at`: TIMESTAMP
 
-1.  **Clarity:** Users are often stressed when reporting a bug. The interface uses ample whitespace, clear typography, and a logical flow to reduce cognitive load.
-2.  **Trust:** The professional and clean design, combined with consistent feedback (hover effects, clear buttons), builds user confidence in the system.
-3.  **Efficiency:** The entire process, from logging in to creating a ticket and adding an update, is designed to be as fast and intuitive as possible. The conversational view for tickets makes following progress natural and easy.
-
-## LICENSE
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+### Table: `bookings`
+Stores all flight reservations and links them to the respective user.
+- `id`: INT (Primary Key, Auto Increment)
+- `booking_reference`: VARCHAR(20) (Unique ID, e.g., BK...)
+- `user_id`: INT (Foreign Key referencing `users.id` with CASCADE deletion)
+- `passenger_name`: VARCHAR(100)
+- `origin`: VARCHAR(100)
+- `destination`: VARCHAR(100)
+- `departure_date`: DATE
+- `passengers`: INT
+- `status`: ENUM ('ACTIVE', 'RESCHEDULED', 'CANCELLED')
+- `created_at`: TIMESTAMP
