@@ -1,0 +1,5 @@
+# Exclude sensitive files
+config.php
+.env
+logs/
+temp/
